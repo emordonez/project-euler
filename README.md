@@ -11,3 +11,4 @@ My solutions to Project Euler problems, completed as a way for me to both brush 
 | 5     | Smallest multiple             | 5 Jan 2022    |
 | 6     | Sum square difference         | 6 Jan 2022    |
 | 7     | 10001st prime                 | 6 Jan 2022    |
+| 8     | Largest product in a series   | 6 Jan 2022    |
