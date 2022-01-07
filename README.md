@@ -13,3 +13,4 @@ My solutions to Project Euler problems, completed as a way for me to both brush 
 | 7     | 10001st prime                 | 6 Jan 2022    |
 | 8     | Largest product in a series   | 6 Jan 2022    |
 | 9     | Special Pythagorean triplet   | 6 Jan 2022    |
+| 10    | Summation of primes           | 7 Jan 202     |
