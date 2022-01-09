@@ -15,3 +15,4 @@ My solutions to Project Euler problems, completed as a way for me to both brush 
 | 9     | Special Pythagorean triplet           | 6 Jan 2022    |
 | 10    | Summation of primes                   | 7 Jan 2022    |
 | 12    | Highly divisble triangular number     | 7 Jan 2022    |
+| 14    | Longest Collatz sequence              | 8 Jan 2022    |
