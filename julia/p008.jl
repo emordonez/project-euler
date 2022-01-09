@@ -28,23 +28,22 @@
 # Find the thirteen adjacent digits in the 1000-digit number that have the
 # greatest product. What is the value of this product?
 
-num = join(readlines("../_files/p008.txt"))
-
-n = 13
-max_prod = 0
-for i in 1:(length(num) - n + 1)
-    prod = 1
-    for j in i:(i + n - 1)
-        d = parse(Int64, num[j])
-        if d == 0
-            break
+let max_prod = 0
+    num = join(readlines("../_files/p008.txt"))
+    n = 13
+    for i in 1:(length(num) - n + 1)
+        prod = 1
+        for j in i:(i + n - 1)
+            d = parse(Int64, num[j])
+            if d == 0
+                break
+            end
+            prod *= d
         end
-        prod *= d
+        max_prod = max(prod, max_prod)
     end
-    global max_prod = max(prod, max_prod)
+    println(max_prod)
 end
-
-println(max_prod)
 
 # Answer: 23514624000
 # Completed on Thu, 6 Jan 2022

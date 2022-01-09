@@ -24,16 +24,14 @@
 
 using Primes
 
-triangle = 0
-N = 500
-
 # Given a natural number n and its prime factorization n = p^a p^b ... p^k, the
 # number of divisors of n is given by (a + 1)(b +1)...(k + 1)
-let max_divisors = 0
+let triangle = 0, max_divisors = 0
+    N = 500
     i = 1
     while max_divisors <= N
         divisors = 1
-        global triangle += i
+        triangle += i
         
         for k in values(factor(Dict, triangle))
             divisors *= k + 1
@@ -42,9 +40,8 @@ let max_divisors = 0
         max_divisors = max(divisors, max_divisors)
         i += 1
     end
+    println(triangle)
 end
-
-println(triangle)
 
 # Answer: 76576500
 # Completed on Thu, 7 Jan 2022

@@ -15,13 +15,11 @@
 # is thought that all starting numbers finish at 1.
 #
 # Which starting number, under one million, produces the longest chain?
+let max_seed = 0, max_length = 0
+    N = 1000000
+    cache = Array{Int64}(undef, N - 1)
+    fill!(cache, -1)
 
-N = 1000000
-max_seed = 0
-cache = Array{Int64}(undef, N - 1)
-fill!(cache, -1)
-
-let max_length = 0
     for i in 1:(N - 1)
         length = 1
         n = i
@@ -38,12 +36,11 @@ let max_length = 0
         cache[i] = length + cache[n]
         if cache[i] > max_length
             max_length = cache[i]
-            global max_seed = i
+            max_seed = i
         end
     end
+    println(max_seed)
 end
-
-println(max_seed)
 
 # Answer: 837799
 # Completed on Sat, 8 Jan 2022

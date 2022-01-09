@@ -18,23 +18,22 @@
 #
 # With the constraint a + b + c = 1000, we can find an upper bound for m and
 # iterate to find n.
-s = 1000
-m_max = isqrt(trunc(Int, s / 2))
-
-x = 0
-for m in m_max:-1:3
-    for n in 2:(m - 1)
-        a = abs2(m) - abs2(n)
-        b = 2 * m * n
-        c = abs2(m) + abs2(n)
-        if a + b + c == s
-            global x = a * b * c
-            break
+let x = 0
+    s = 1000
+    m_max = isqrt(trunc(Int, s / 2))
+    for m in m_max:-1:3
+        for n in 2:(m - 1)
+            a = abs2(m) - abs2(n)
+            b = 2 * m * n
+            c = abs2(m) + abs2(n)
+            if a + b + c == s
+                x = a * b * c
+                break
+            end
         end
     end
+    println(x)
 end
-
-println(x)
 
 # Answer: 31875000
 # Completed on Thu, 6 Jan 2022

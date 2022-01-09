@@ -6,15 +6,15 @@
 #
 # Find the sum of all the multiples of 3 or 5 below 1000.
 
-N = 1000
-x = 0
-for i in 1:(N - 1)
-    if mod(i, 3) == 0 || mod(i , 5) == 0
-        global x += i
+let x = 0
+    N = 1000
+    for i in 1:(N - 1)
+        if mod(i, 3) == 0 || mod(i , 5) == 0
+            x += i
+        end
     end
+    println(x)
 end
-
-println(x)
 
 # Answer: 233168
 # Completed Mon, 3 Jan 2022
