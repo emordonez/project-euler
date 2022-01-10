@@ -35,7 +35,7 @@ max_divisors = 0
 while max_divisors <= N:
     divisors = 1
     triangle += i
-    for k in primes.prime_factorization(triangle).values():
+    for k in primes.factor(triangle).values():
         divisors *= k + 1
 
     max_divisors = max(divisors, max_divisors)
