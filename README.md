@@ -16,5 +16,6 @@ My solutions to Project Euler problems, completed as a way for me to both brush 
 | 10    | Summation of primes                   | 7 Jan 2022    |
 | 12    | Highly divisble triangular number     | 7 Jan 2022    |
 | 14    | Longest Collatz sequence              | 8 Jan 2022    |
+| 16    | Power digit sum                       | 10 Jan 2022   |
 | 20    | Factorial digit sum                   | 10 Jan 2022   |
 | 25    | 1000-digit Fibonacci number           | 9 Jan 2022    |
