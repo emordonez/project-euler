@@ -20,4 +20,5 @@ My solutions to Project Euler problems, completed as a way for me to both brush 
 | 16    | Power digit sum                       | 10 Jan 2022   |
 | 20    | Factorial digit sum                   | 10 Jan 2022   |
 | 21    | Amicable numbers                      | 11 Jan 2022   |
+| 22    | Names scores                          | 11 Jan 2022   |
 | 25    | 1000-digit Fibonacci number           | 9 Jan 2022    |
