@@ -1,6 +1,6 @@
-# Problem 14: Longest Collatz sequence
-# https://projecteuler.net/problem=14
-#
+"""Problem 14: Longest Collatz sequence
+https://projecteuler.net/problem=14
+"""
 # The following iterative sequence is defined for the set of positive integers:
 #
 #       n → n/2 (n is even)
@@ -16,29 +16,37 @@
 #
 # Which starting number, under one million, produces the longest chain?
 
-N = 1000000
-max_length = 0
-max_seed = 0
-cache = [-1 for i in range(N + 1)]
+def main():
+    """Computes the length of Collatz sequences with starting seeds 1..1E6,
+    while storing the lengths of previously computed sequences.
+    """
+    N = 1000000
+    max_length = 0
+    max_seed = 0
+    cache = [-1 for i in range(N + 1)]
 
-for i in range(1, N):
-    length = 1
-    n = i
+    for i in range(1, N):
+        length = 1
+        n = i
 
-    while n != 1 and n >= i:
-        length += 1
-        if n % 2 == 0:
-            n /= 2
-        else:
-            n = 3 * n + 1
+        while n != 1 and n >= i:
+            length += 1
+            if n % 2 == 0:
+                n /= 2
+            else:
+                n = 3 * n + 1
 
-    cache[i] = length + cache[int(n)]
+        cache[i] = length + cache[int(n)]
 
-    if cache[i] > max_length:
-        max_length = cache[i]
-        max_seed = i
+        if cache[i] > max_length:
+            max_length = cache[i]
+            max_seed = i
 
-print(max_seed)
+    print(max_seed)
+
+
+if __name__ == "__main__":
+    main()
 
 # Answer: 837799
 # Completed on Sat, 8 Jan 2022

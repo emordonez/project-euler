@@ -1,6 +1,6 @@
-# Problem 25: 1000-digit Fibonacci number
-# https://projecteuler.net/problem=25
-#
+"""Problem 25: 1000-digit Fibonacci number
+https://projecteuler.net/problem=25
+"""
 # The Fibonacci sequence is defined by the recurrence relation:
 #
 #       Fn = Fn−1 + Fn−2, where F1 = 1 and F2 = 1.
@@ -33,14 +33,20 @@ def number_of_digits(n):
     return int(log10(n)) + 1
 
 
-i = 2
-N = 1000
-f1, f2 = 1, 1
-while number_of_digits(f2) < N:
-    f1, f2 = f2, f1 + f2
-    i += 1
+def main():
+    """Generates Fibonacci numbers until the digit limit has been reached."""
+    N = 1000
+    f1, f2 = 1, 1
+    i = 2
+    while number_of_digits(f2) < N:
+        f1, f2 = f2, f1 + f2
+        i += 1
 
-print(i)
+    print(i)
+
+
+if __name__ == "__main__":
+    main()
 
 # Answer: 4782
 # Completed on Sun, 9 Jan 2022

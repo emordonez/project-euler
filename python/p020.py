@@ -1,6 +1,6 @@
-# Problem 20: Factorial digit sum
-# https://projecteuler.net/problem=20
-#
+"""Problem 20: Factorial digit sum
+https://projecteuler.net/problem=20
+"""
 # n! means n × (n − 1) × ... × 3 × 2 × 1
 #
 # For example, 10! = 10 × 9 × ... × 3 × 2 × 1 = 3628800,
@@ -8,16 +8,22 @@
 #
 # Find the sum of the digits in the number 100!
 
-N = 100
-N_factorial = 1
-for i in range(1, N + 1):
-    N_factorial *= i
+def main():
+    """Computes 100! and loops through its digits."""
+    N = 100
+    N_factorial = 1
+    for i in range(1, N + 1):
+        N_factorial *= i
 
-digits_sum = 0
-for d in str(N_factorial):
-    digits_sum += int(d)
+    digits_sum = 0
+    for d in str(N_factorial):
+        digits_sum += int(d)
 
-print(digits_sum)
+    print(digits_sum)
+
+
+if __name__ == "__main__":
+    main()
 
 # Answer: 648
 # Completed on Mon, 10 Jan 2022

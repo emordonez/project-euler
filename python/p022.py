@@ -1,6 +1,6 @@
-# Problem 22: Names scores
-# https://projecteuler.net/problem=22
-#
+"""Problem 22: Names scores
+https://projecteuler.net/problem=22
+"""
 # Using names.txt, a 46K text file containing over five-thousand first names,
 # begin by sorting it into alphabetical order. Then working out the
 # alphabetical value for each name, multiply this value by its alphabetical
@@ -12,26 +12,32 @@
 #
 # What is the total of all the name scores in the file?
 
-ALPHABET = [
-    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
-    'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
-]
-ALPHA_VALUE = dict(zip(ALPHABET, range(1, 27)))
+def main():
+    """Reads names into a list, sorts, and computes name scores."""
+    alphabet = [
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+        'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+    ]
+    alpha_value = dict(zip(alphabet, range(1, 27)))
 
-with open('../_files/p022.txt') as f:
-    names = f.read().split(',')
-    names = sorted(names)
+    with open('../_files/p022.txt') as f:
+        names = f.read().split(',')
+        names = sorted(names)
 
-total_score = 0
-for i, name in enumerate(names):
-    s = name[1:-1]
-    score = 0
-    for ch in s:
-        score += ALPHA_VALUE[ch]
-    score *= (i + 1)
-    total_score += score
+    total_score = 0
+    for i, name in enumerate(names):
+        s = name[1:-1]
+        score = 0
+        for ch in s:
+            score += alpha_value[ch]
+        score *= (i + 1)
+        total_score += score
 
-print(total_score)
+    print(total_score)
+
+
+if __name__ == "__main__":
+    main()
 
 # Answer: 871198282
 # Completed on Tue, 11 Jan 2022

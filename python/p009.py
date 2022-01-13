@@ -1,6 +1,6 @@
-# Problem 9: Special Pythagorean triplet
-# https://projecteuler.net/problem=9
-#
+"""Problem 9: Special Pythagorean triplet
+https://projecteuler.net/problem=9
+"""
 # A Pythagorean triplet is a set of three natural numbers, a < b < c, for
 # which,
 #
@@ -14,27 +14,33 @@
 from math import sqrt
 
 
-# Euclid's formula generates Pythagorean triples given an arbitrary pair of
-# integers m > n > 0:
-#
-#       a = m^2 - n^2, b = 2mn, c = m^2 + n^2
-#
-# With the constraint a + b + c = 1000, we can find an upper bound for m and
-# iterate to find n.
-s = 1000
-m_max = int(sqrt(s / 2))
+def main():
+    """Utilizes Euclid's formula for Pythagorean triples to solve for a, b, c."""
+    # Euclid's formula generates Pythagorean triples given an arbitrary pair of
+    # integers m > n > 0:
+    #
+    #       a = m^2 - n^2, b = 2mn, c = m^2 + n^2
+    #
+    # With the constraint a + b + c = 1000, we can find an upper bound for m
+    # and iterate to find n.
+    s = 1000
+    m_max = int(sqrt(s / 2))
 
-x = 0
-for m in range(m_max, 2, -1):
-    for n in range(2, m):
-        a = m**2 - n**2
-        b = 2 * m * n
-        c = m**2 + n**2
-        if a + b + c == s:
-            x = a * b * c
-            break
+    x = 0
+    for m in range(m_max, 2, -1):
+        for n in range(2, m):
+            a = m**2 - n**2
+            b = 2 * m * n
+            c = m**2 + n**2
+            if a + b + c == s:
+                x = a * b * c
+                break
 
-print(x)
+    print(x)
+
+
+if __name__ == "__main__":
+    main()
 
 # Answer: 31875000
 # Completed on Thu, 6 Jan 2022

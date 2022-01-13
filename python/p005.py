@@ -1,6 +1,6 @@
-# Problem 5: Smallest multiple
-# https://projecteuler.net/problem=5
-
+"""Problem 5: Smallest multiple
+https://projecteuler.net/problem=5
+"""
 # 2520 is the smallest number that can be divided by each of the numbers from 1
 # to 10 without any remainder.
 #
@@ -27,21 +27,27 @@ def factor(n):
     return {p:factors.count(p) for p in factors}
 
 
-# The LCM is the product of all prime factors in the range 1 to 20, with each
-#   prime raised to the highest power that appears in a factorization in this
-#   range
-factor_maps = [factor(n) for n in range(2, 21)]
-prime_counts = {p:1 for p in [2, 3, 5, 7, 11, 13, 17, 19]}
+def main():
+    """Finds the least common multiple of the integers 1..20."""
+    # The LCM is the product of all prime factors in the range 1 to 20, with
+    # each prime raised to the highest power that appears in a factorization
+    # in this range
+    factor_maps = [factor(n) for n in range(2, 21)]
+    prime_counts = {p:1 for p in [2, 3, 5, 7, 11, 13, 17, 19]}
 
-for factorization in factor_maps:
-    for p, count in factorization.items():
-        prime_counts[p] = max(count, prime_counts[p])
+    for factorization in factor_maps:
+        for p, count in factorization.items():
+            prime_counts[p] = max(count, prime_counts[p])
 
-x = 1
-for k, v in prime_counts.items():
-    x *= k**v
+    x = 1
+    for k, v in prime_counts.items():
+        x *= k**v
 
-print(x)
+    print(x)
+
+
+if __name__ == "__main__":
+    main()
 
 # Answer: 232792560
 # Completed on Wed, 5 Jan 2022

@@ -1,6 +1,6 @@
-# Problem 21: Amicable numbers
-# https://projecteuler.net/problem=21
-#
+"""Problem 21: Amicable numbers
+https://projecteuler.net/problem=21
+"""
 # Let d(n) be defined as the sum of proper divisors of n (numbers less than n
 # which divide evenly into n).
 # If d(a) = b and d(b) = a, where a ≠ b, then a and b are an amicable pair and
@@ -31,23 +31,29 @@ def sum_of_proper_divisors(n):
     return s + (sqrt_n if sqrt_n ** 2 == n else 0)
 
 
-N = 10000
-nums = [False] * (N + 1)
-amicable_nums = set()
+def main():
+    """Finds all amicable numbers below 10,000 and sums them."""
+    N = 10000
+    nums = [False] * (N + 1)
+    amicable_nums = set()
 
-for i in range(1, N):
-    if nums[i]:
-        continue
+    for i in range(1, N):
+        if nums[i]:
+            continue
 
-    a = i
-    b = sum_of_proper_divisors(a)
-    if a != b and sum_of_proper_divisors(b) == a:
-        amicable_nums.add(a)
-        amicable_nums.add(b)
-        nums[a] = True
-        nums[b] = True
+        a = i
+        b = sum_of_proper_divisors(a)
+        if a != b and sum_of_proper_divisors(b) == a:
+            amicable_nums.add(a)
+            amicable_nums.add(b)
+            nums[a] = True
+            nums[b] = True
 
-print(sum(amicable_nums))
+    print(sum(amicable_nums))
+
+
+if __name__ == "__main__":
+    main()
 
 # Answer: 31626
 # Completed on Tue, 11 Jan 2022

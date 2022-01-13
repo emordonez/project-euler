@@ -42,7 +42,8 @@ def sum_of_proper_divisors(n):
 
 
 def main():
-
+    """Finds all abundant numbers less than 28,123, then keeps track of
+    abundant sums in a bit mask."""
     N = 28123
     abundants = [i for i in range(12, N + 1) if sum_of_proper_divisors(i) > i]
     abundant_sums = [True] * (N + 1)
@@ -54,6 +55,10 @@ def main():
             abundant_sums[a + b - 1] = False
     non_abundant_sum = sum(compress(range(1, N + 1), abundant_sums))
     print(non_abundant_sum)
+
+
+if __name__ == "__main__":
+    main()
 
 # Answer: 4179871
 # Completed on Wed, 12 Jan 2022

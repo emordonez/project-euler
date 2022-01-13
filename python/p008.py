@@ -1,6 +1,6 @@
-# Problem 8: Largest product in a series
-# https://projecteuler.net/problem=8
-#
+"""Problem 8: Largest product in a series
+https://projecteuler.net/problem=8
+"""
 # The four adjacent digits in the 1000-digit number that have the greatest
 # product are 9 × 9 × 8 × 9 = 5832.
 #
@@ -28,23 +28,29 @@
 # Find the thirteen adjacent digits in the 1000-digit number that have the
 # greatest product. What is the value of this product?
 
-with open('../_files/p008.txt') as f:
-    num = f.read().splitlines()
-    num = ''.join(num)
+def main():
+    """Loops through the number's digits to find the max product."""
+    with open('../_files/p008.txt') as f:
+        num = f.read().splitlines()
+        num = ''.join(num)
 
-n = 13
-max_prod = 0
-for i in range(len(num) - n):
-    prod = 1
-    for j in range(i, i + n):
-        d = int(num[j])
-        if d == 0:
-            break
-        prod *= d
+    n = 13
+    max_prod = 0
+    for i in range(len(num) - n):
+        prod = 1
+        for j in range(i, i + n):
+            d = int(num[j])
+            if d == 0:
+                break
+            prod *= d
 
-    max_prod = max(prod, max_prod)
+        max_prod = max(prod, max_prod)
 
-print(max_prod)
+    print(max_prod)
+
+
+if __name__ == "__main__":
+    main()
 
 # Answer: 23514624000
 # Completed on Thu, 6 Jan 2022
