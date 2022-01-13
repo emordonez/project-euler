@@ -25,3 +25,4 @@ My solutions to Project Euler problems, completed as a way for me to both brush 
 | 24    | Lexicographic permutations            | 12 Jan 2022   |
 | 25    | 1000-digit Fibonacci number           | 9 Jan 2022    |
 | 29    | Distinct powers                       | 12 Jan 2022   |
+| 35    | Circular primes                       | 13 Jan 2022   |
