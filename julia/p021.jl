@@ -12,11 +12,12 @@
 #
 # Evaluate the sum of all the amicable numbers under 10000.
 
-function d(n)
-    if n <= 0
-        return
-    end
-    if n == 1
+function d(n::Int)
+    if n < 0
+        throw(ArgumentError("n must be positive"))
+    elseif n == 0
+        return nothing
+    elseif n == 1
         return 0
     end
 
@@ -28,7 +29,7 @@ function d(n)
         end
     end
 
-    return s + (sqrt_n^2 == 2 ? sqrt_n : 0)
+    return s + (sqrt_n^2 == n ? sqrt_n : 0)
 end
 
 let amicable_nums = Set()

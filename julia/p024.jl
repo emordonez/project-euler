@@ -21,7 +21,6 @@ let millionth = ""
     for d in millionth_perm
         millionth *= string(d)
     end
-    
     println(millionth)
 end
 

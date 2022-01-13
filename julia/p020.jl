@@ -12,7 +12,6 @@ let x = 0
     N = 100
     N_factorial = factorial(big(N))
     x = sum(digits(N_factorial))
-
     println(x)
 end
 

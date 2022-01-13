@@ -9,7 +9,6 @@ using Primes
 
 N = 2000000
 x = sum(primes(N))
-
 println(x)
 
 # Answer: 142913828922

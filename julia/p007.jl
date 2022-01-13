@@ -8,9 +8,8 @@
 
 using Primes
 
-n = 10001
-x = prime(n)
-
+N = 10001
+x = prime(N)
 println(x)
 
 # Answer: 104743

@@ -26,9 +26,10 @@ using Primes
 
 # Given a natural number n and its prime factorization n = p^a p^b ... p^k, the
 # number of divisors of n is given by (a + 1)(b +1)...(k + 1)
-let triangle = 0, max_divisors = 0
+let triangle = 0
     N = 500
     i = 1
+    max_divisors = 0
     while max_divisors <= N
         divisors = 1
         triangle += i
@@ -36,8 +37,8 @@ let triangle = 0, max_divisors = 0
         for k in values(factor(Dict, triangle))
             divisors *= k + 1
         end
-
         max_divisors = max(divisors, max_divisors)
+        
         i += 1
     end
     println(triangle)

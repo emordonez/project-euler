@@ -7,8 +7,8 @@
 
 using Primes
 
-x = last(Primes.factor(Vector, 600851475143))
-
+N = 600851475143
+x = last(Primes.factor(Vector, N))
 println(x)
 
 # Answer: 6857

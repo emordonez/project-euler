@@ -7,8 +7,7 @@
 
 let x = 0
     N = 1000
-    x = sum(digits(BigInt(2)^N))
-
+    x = sum(digits(big(2)^N))
     println(x)
 end
 

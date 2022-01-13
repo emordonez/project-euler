@@ -20,16 +20,15 @@ let total_score = 0
     names = split(names, ',')
     sort!(names)
     
-    for (i, name) in enumerate(names)
+    for (rank, name) in enumerate(names)
         score = 0
         str = replace(name, r"[\",]*" => "")
         for ch in str
             score += ALPHA_VALUE[ch]
         end
-        score *= i
+        score *= rank
         total_score += score
     end
-
     println(total_score)
 end
 

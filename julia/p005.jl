@@ -8,7 +8,6 @@
 # numbers from 1 to 20?
 
 x = lcm(collect(1:20))
-
 println(x)
 
 # Answer: 232792560

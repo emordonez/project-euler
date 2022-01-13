@@ -17,12 +17,13 @@
 # Find the difference between the sum of the squares of the first one hundred
 # natural numbers and the square of the sum.
 
-let sum_of_squares = 0, square_of_sum = 0, x = 0
+let x = 0
+    sum_of_squares, square_of_sum = 0, 0 
     for i in 1:100
-        sum_of_squares += abs2(i)
+        sum_of_squares += i^2
         square_of_sum += i
     end
-    square_of_sum = abs2(square_of_sum)
+    square_of_sum = square_of_sum^2
     x = square_of_sum - sum_of_squares
     println(x)
 end

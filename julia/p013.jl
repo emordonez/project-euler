@@ -28,7 +28,6 @@ let total_sum_str = ""
         total_sum_str *= string(carry)
         total_sum_str = reverse(total_sum_str)
     end
-
     println(total_sum_str[1:N])
 end
 

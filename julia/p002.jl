@@ -11,6 +11,7 @@
 
 let f1 = 1, f2 = 2, x = 0
     N = 4E6
+    f1, f2 = 1, 2
     while f2 < N
         if iseven(f2)
             x += f2

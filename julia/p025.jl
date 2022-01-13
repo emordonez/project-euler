@@ -26,8 +26,8 @@
 # 1000 digits?
 
 let f1::BigInt = 1, f2::BigInt = 1
-    i = 2
     N = 1000
+    i = 2
     while length(digits(f2)) < N
         f1, f2 = f2, f1 + f2
         i += 1

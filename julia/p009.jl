@@ -18,9 +18,10 @@
 #
 # With the constraint a + b + c = 1000, we can find an upper bound for m and
 # iterate to find n.
+
 let x = 0
     s = 1000
-    m_max = isqrt(trunc(Int, s / 2))
+    m_max = isqrt(div(s, 2))
     for m in m_max:-1:3
         for n in 2:(m - 1)
             a = abs2(m) - abs2(n)
