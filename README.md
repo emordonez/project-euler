@@ -20,6 +20,7 @@ My solutions to Project Euler problems, completed as a way for me to both brush 
 | 14    | Longest Collatz sequence              | 8 Jan 2022    |
 | 15    | Lattice paths                         | 17 Jan 2022   |
 | 16    | Power digit sum                       | 10 Jan 2022   |
+| 18    | Maximum path sum I                    | 17 Jan 2022   |
 | 20    | Factorial digit sum                   | 10 Jan 2022   |
 | 21    | Amicable numbers                      | 11 Jan 2022   |
 | 22    | Names scores                          | 11 Jan 2022   |
@@ -28,3 +29,4 @@ My solutions to Project Euler problems, completed as a way for me to both brush 
 | 25    | 1000-digit Fibonacci number           | 9 Jan 2022    |
 | 29    | Distinct powers                       | 12 Jan 2022   |
 | 35    | Circular primes                       | 13 Jan 2022   |
+| 67    | Maximum path sum II                   | 17 Jan 2022   |
