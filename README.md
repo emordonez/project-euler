@@ -18,6 +18,7 @@ My solutions to Project Euler problems, completed as a way for me to both brush 
 | 12    | Highly divisble triangular number     | 7 Jan 2022    |
 | 13    | Large sum                             | 10 Jan 2022   |
 | 14    | Longest Collatz sequence              | 8 Jan 2022    |
+| 15    | Lattice paths                         | 17 Jan 2022   |
 | 16    | Power digit sum                       | 10 Jan 2022   |
 | 20    | Factorial digit sum                   | 10 Jan 2022   |
 | 21    | Amicable numbers                      | 11 Jan 2022   |
