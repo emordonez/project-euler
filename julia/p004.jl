@@ -6,8 +6,10 @@
 #
 # Find the largest palindrome made from the product of two 3-digit numbers.
 
-let x = -1
-    N = 1000
+using BenchmarkTools
+
+function solution_4(N)
+    x = -1
     for i in 100:(N - 1)
         for j in i:(N - 1)
             prod = i * j
@@ -16,8 +18,12 @@ let x = -1
             end
         end
     end
-    println(x)
+
+    return x
 end
+
+println(solution_4(1000))
+@btime solution_4(1000)
 
 # Answer: 906609
 # Completed on Tue, 4 Jan 2022

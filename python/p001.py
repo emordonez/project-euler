@@ -6,15 +6,22 @@ https://projecteuler.net/problem=1
 #
 # Find the sum of all the multiples of 3 or 5 below 1000.
 
-def main():
-    """Iterates from 1..999 for divisibility by 3 or 5."""
-    N = 1000
-    x = 0
-    for i in range(1, N):
-        if i % 3 == 0 or i % 5 == 0:
-            x += i
 
-    print(x)
+from helpers import solution
+
+
+def solution_1(n):
+    """Iterates from 1..(n - 1) for divisibility by 3 or 5."""
+    return sum(i for i in range(1, n) if i % 3 == 0 or i % 5 == 0)
+
+
+def main():
+    """Main function."""
+    N = 1000
+    ans = solution_1(N)
+    stmt = lambda: solution_1(N)
+    solution.print_solution(ans)
+    solution.benchmark(stmt)
 
 
 if __name__ == "__main__":

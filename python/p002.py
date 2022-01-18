@@ -9,19 +9,30 @@ https://projecteuler.net/problem=2
 # By considering the terms in the Fibonacci sequence whose values do not exceed
 # four million, find the sum of the even-valued terms.
 
-def main():
+from helpers import solution
+
+
+def solution_2(n):
     """Iteratively generates Fibonacci numbers through 4,000,000 and sums only
     the even ones.
     """
-    N = 4E6
     f1, f2 = 1, 2
     x = 0
-    while f2 < N:
+    while f2 < n:
         if f2 % 2 == 0:
             x += f2
         f1, f2 = f2, f1 + f2
 
-    print(x)
+    return x
+
+
+def main():
+    """Main function."""
+    N = 4E6
+    ans = solution_2(N)
+    stmt = lambda: solution_2(N)
+    solution.print_solution(ans)
+    solution.benchmark(stmt)
 
 
 if __name__ == "__main__":
