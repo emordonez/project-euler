@@ -8,7 +8,7 @@
 
 using BenchmarkTools
 
-function solution_4(N)
+function solution_4(N::Int)
     x = -1
     for i in 100:(N - 1)
         for j in i:(N - 1)

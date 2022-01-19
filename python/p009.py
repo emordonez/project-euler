@@ -12,10 +12,13 @@ https://projecteuler.net/problem=9
 # Find the product abc.
 
 from math import sqrt
+from helpers import solution
 
 
-def main():
-    """Utilizes Euclid's formula for Pythagorean triples to solve for a, b, c."""
+def solution_9(s):
+    """Utilizes Euclid's formula for Pythagorean triples to solve for a, b, c
+    such that a + b + c = s.
+    """
     # Euclid's formula generates Pythagorean triples given an arbitrary pair of
     # integers m > n > 0:
     #
@@ -23,9 +26,7 @@ def main():
     #
     # With the constraint a + b + c = 1000, we can find an upper bound for m
     # and iterate to find n.
-    s = 1000
     m_max = int(sqrt(s / 2))
-
     x = 0
     for m in range(m_max, 2, -1):
         for n in range(2, m):
@@ -36,7 +37,16 @@ def main():
                 x = a * b * c
                 break
 
-    print(x)
+    return x
+
+
+def main():
+    """Main function."""
+    s = 1000
+    ans = solution_9(s)
+    stmt = lambda: solution_9(s)
+    solution.print_solution(ans)
+    solution.benchmark(stmt)
 
 
 if __name__ == "__main__":

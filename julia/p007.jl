@@ -6,11 +6,15 @@
 #
 # What is the 10,001st prime number?
 
+using BenchmarkTools
 using Primes
 
-N = 10001
-x = prime(N)
-println(x)
+function solution_7(N::Int)
+    return prime(N)
+end
+
+println(solution_7(10001))
+@btime solution_7(10001)
 
 # Answer: 104743
 # Completed on Thu, 6 Jan 2022

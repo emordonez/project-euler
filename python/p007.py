@@ -6,6 +6,9 @@ https://projecteuler.net/problem=7
 #
 # What is the 10,001st prime number?
 
+from helpers import solution
+
+
 def generate_primes():
     """An implementation of the Sieve of Eratosthenes to generate primes
     indefinitely. Returns a generator.
@@ -25,18 +28,26 @@ def generate_primes():
         i += 1
 
 
-def main():
-    """Iteratively generates primes until the 10,001st prime."""
-    N = 10001
+def solution_7(n):
+    """Iteratively generates primes until the nth prime."""
     primes = generate_primes()
     p = 0
     p_count = 0
 
-    while p_count < N:
+    while p_count < n:
         p = next(primes)
         p_count += 1
 
-    print(p)
+    return p
+
+
+def main():
+    """Main function."""
+    N = 10001
+    ans = solution_7(N)
+    stmt = lambda: solution_7(N)
+    solution.print_solution(ans)
+    solution.benchmark(stmt)
 
 
 if __name__ == "__main__":

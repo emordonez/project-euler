@@ -8,7 +8,7 @@
 using BenchmarkTools
 using Primes
 
-function solution_3(N)
+function solution_3(N::Int)
     return last(Primes.factor(Vector, N))
 end
 

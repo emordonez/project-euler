@@ -9,7 +9,7 @@
 
 using BenchmarkTools
 
-function solution_5(N)
+function solution_5(N::Int)
     return lcm(collect(1:N))
 end
 

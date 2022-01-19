@@ -19,9 +19,11 @@
 # With the constraint a + b + c = 1000, we can find an upper bound for m and
 # iterate to find n.
 
-let x = 0
-    s = 1000
+using BenchmarkTools
+
+function solution_9(s::Int)
     m_max = isqrt(div(s, 2))
+    x = 0
     for m in m_max:-1:3
         for n in 2:(m - 1)
             a = abs2(m) - abs2(n)
@@ -33,8 +35,12 @@ let x = 0
             end
         end
     end
-    println(x)
+
+    return x
 end
+
+println(solution_9(1000))
+@btime solution_9(1000)
 
 # Answer: 31875000
 # Completed on Thu, 6 Jan 2022

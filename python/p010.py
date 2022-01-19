@@ -5,21 +5,29 @@ https://projecteuler.net/problem=10
 #
 # Find the sum of all the primes below two million.
 
-from helpers import primes
+from helpers import primes, solution
 
 
-def main():
+def solution_10(n):
     """Generates primes up to 2,000,000 and sums them."""
-    N = 2E6
     p_gen = primes.generate_primes()
     p = 0
     prime_sum = 0
 
-    while p < N:
+    while p < n:
         prime_sum += p
         p = next(p_gen)
 
-    print(prime_sum)
+    return prime_sum
+
+
+def main():
+    """Main function."""
+    N = 2E6
+    ans = solution_10(N)
+    stmt = lambda: solution_10(N)
+    solution.print_solution(ans)
+    solution.benchmark(stmt, number=100) # This one takes longer...
 
 
 if __name__ == "__main__":

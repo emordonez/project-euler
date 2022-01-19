@@ -5,11 +5,15 @@
 #
 # Find the sum of all the primes below two million.
 
+using BenchmarkTools
 using Primes
 
-N = 2000000
-x = sum(primes(N))
-println(x)
+function solution_10(N::Int)
+    return sum(primes(N))
+end
+
+println(solution_10(2000000))
+@btime solution_10(2000000)
 
 # Answer: 142913828922
 # Completed on Fri, 7 Jan 2022

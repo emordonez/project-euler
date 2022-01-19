@@ -17,19 +17,29 @@ https://projecteuler.net/problem=6
 # Find the difference between the sum of the squares of the first one hundred
 # natural numbers and the square of the sum.
 
-def main():
-    """Iterates 1..100 to find the sum of squares and square of the sum."""
+from helpers import solution
+
+
+def solution_6(n):
+    """Iterates 1..n to find the sum of squares and square of the sum."""
     sum_of_squares = 0
     square_of_sum = 0
 
-    for i in range(1, 101):
+    for i in range(1, n + 1):
         sum_of_squares += i**2
         square_of_sum += i
-
     square_of_sum *= square_of_sum
-    diff = square_of_sum - sum_of_squares
 
-    print(diff)
+    return square_of_sum - sum_of_squares
+
+
+def main():
+    """Main function."""
+    N = 100
+    ans = solution_6(N)
+    stmt = lambda: solution_6(N)
+    solution.print_solution(ans)
+    solution.benchmark(stmt)
 
 
 if __name__ == "__main__":
