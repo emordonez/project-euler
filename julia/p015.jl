@@ -6,11 +6,14 @@
 #
 # How many such routes are there through a 20×20 grid?
 
-let num_paths = 0
-    N = 21
-    num_paths = binomial(2 * (N - 1), N - 1)
-    println(num_paths)
+using BenchmarkTools
+
+function solution_15(N::Int)
+    return binomial(2 * (N - 1), N - 1)
 end
+
+println(solution_15(21))
+@btime solution_15(21)
 
 # Answer: 137846528820
 # Completed on Mon, 17 Jan 2022

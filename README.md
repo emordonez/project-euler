@@ -18,11 +18,11 @@ Benchmarking is done with `timeit` in Python and `BenchmarkTools` in Julia.
 | 8     | Largest product in a series           | 6 Jan 2022    | 1.255 ms      | 31.756 μs     |
 | 9     | Special Pythagorean triplet           | 6 Jan 2022    | 174.904 µs    | 215.988 ns    |
 | 10    | Summation of primes                   | 7 Jan 2022    | 1.080 s       | 4.502 ms      |
-| 11    | Largest product in a grid             | 16 Jan 2022   |               |               |
-| 12    | Highly divisble triangular number     | 7 Jan 2022    |               |               |
-| 13    | Large sum                             | 10 Jan 2022   |               |               |
-| 14    | Longest Collatz sequence              | 8 Jan 2022    |               |               |
-| 15    | Lattice paths                         | 17 Jan 2022   |               |               |
+| 11    | Largest product in a grid             | 16 Jan 2022   | 377.685 µs    | 7.699 μs      |
+| 12    | Highly divisble triangular number     | 7 Jan 2022    | 2.788 s       | 9.910 ms      |
+| 13    | Large sum                             | 10 Jan 2022   | 594.234 µs    | 25.351 μs     |
+| 14    | Longest Collatz sequence              | 8 Jan 2022    | 1.238 s       | 12.761 ms     |
+| 15    | Lattice paths                         | 17 Jan 2022   | 1.397 µs      | 188.332 ns    |
 | 16    | Power digit sum                       | 10 Jan 2022   |               |               |
 | 18    | Maximum path sum I                    | 17 Jan 2022   |               |               |
 | 20    | Factorial digit sum                   | 10 Jan 2022   |               |               |
