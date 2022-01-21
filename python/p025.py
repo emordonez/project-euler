@@ -26,6 +26,7 @@ https://projecteuler.net/problem=25
 # 1000 digits?
 
 from math import log10
+from helpers import solution
 
 
 def number_of_digits(n):
@@ -33,16 +34,24 @@ def number_of_digits(n):
     return int(log10(n)) + 1
 
 
-def main():
-    """Generates Fibonacci numbers until the digit limit has been reached."""
-    N = 1000
+def solution_25(n):
+    """Generates Fibonacci numbers until the digit limit n has been reached."""
     f1, f2 = 1, 1
     i = 2
-    while number_of_digits(f2) < N:
+    while number_of_digits(f2) < n:
         f1, f2 = f2, f1 + f2
         i += 1
 
-    print(i)
+    return i
+
+
+def main():
+    """Main function."""
+    N = 1000
+    ans = solution_25(N)
+    stmt = lambda: solution_25(N)
+    solution.print_solution(ans)
+    solution.benchmark(stmt)
 
 
 if __name__ == "__main__":

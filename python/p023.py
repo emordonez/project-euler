@@ -21,6 +21,7 @@ https://projecteuler.net/problem=23
 
 from itertools import compress
 from math import ceil, sqrt
+from helpers import solution
 
 
 def sum_of_proper_divisors(n):
@@ -41,20 +42,29 @@ def sum_of_proper_divisors(n):
     return s + (sqrt_n if sqrt_n ** 2 == n else 0)
 
 
-def main():
-    """Finds all abundant numbers less than 28,123, then keeps track of
-    abundant sums in a bit mask."""
-    N = 28123
-    abundants = [i for i in range(12, N + 1) if sum_of_proper_divisors(i) > i]
-    abundant_sums = [True] * (N + 1)
+def solution_23(n):
+    """Finds all abundant numbers less than n, then keeps track of abundant
+    sums in a bit mask.
+    """
+    abundants = [i for i in range(12, n + 1) if sum_of_proper_divisors(i) > i]
+    abundant_sums = [True] * (n + 1)
 
     for i, a in enumerate(abundants):
         for b in abundants[i:]:
-            if a + b > N:
+            if a + b > n:
                 break
             abundant_sums[a + b - 1] = False
-    non_abundant_sum = sum(compress(range(1, N + 1), abundant_sums))
-    print(non_abundant_sum)
+
+    return sum(compress(range(1, n + 1), abundant_sums))
+
+
+def main():
+    """Main function."""
+    N = 28123
+    ans = solution_23(N)
+    stmt = lambda: solution_23(N)
+    solution.print_solution(ans)
+    solution.benchmark(stmt, number=100)
 
 
 if __name__ == "__main__":

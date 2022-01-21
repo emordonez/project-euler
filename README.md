@@ -23,16 +23,16 @@ Benchmarking is done with `timeit` in Python and `BenchmarkTools` in Julia.
 | 13    | Large sum                             | 10 Jan 2022   | 594.234 µs    | 25.351 μs     |
 | 14    | Longest Collatz sequence              | 8 Jan 2022    | 1.238 s       | 12.761 ms     |
 | 15    | Lattice paths                         | 17 Jan 2022   | 1.397 µs      | 188.332 ns    |
-| 16    | Power digit sum                       | 10 Jan 2022   |               |               |
-| 17    | Number letter counts                  | 20 Jan 2022   |               |               |
-| 18    | Maximum path sum I                    | 17 Jan 2022   |               |               |
-| 19    | Counting Sundays                      | 20 Jan 2022   |               |               |
-| 20    | Factorial digit sum                   | 10 Jan 2022   |               |               |
-| 21    | Amicable numbers                      | 11 Jan 2022   |               |               |
-| 22    | Names scores                          | 11 Jan 2022   |               |               |
-| 23    | Non-abundant sums                     | 12 Jan 2022   |               |               |
-| 24    | Lexicographic permutations            | 12 Jan 2022   |               |               |
-| 25    | 1000-digit Fibonacci number           | 9 Jan 2022    |               |               |
+| 16    | Power digit sum                       | 10 Jan 2022   | 26.733 µs     | 2.042 μs      |
+| 17    | Number letter counts                  | 20 Jan 2022   | 362.466 µs    | 157.054 μs    |
+| 18    | Maximum path sum I                    | 17 Jan 2022   | 22.659 µs     | 10.077 μs     |
+| 19    | Counting Sundays                      | 20 Jan 2022   | 119.351 µs    | 8.355 μs      |
+| 20    | Factorial digit sum                   | 10 Jan 2022   | 18.675 µs     | 1.625 μs      |
+| 21    | Amicable numbers                      | 11 Jan 2022   | 53.706 ms     | 26.575 ms     |
+| 22    | Names scores                          | 11 Jan 2022   | 2.224 ms      | 3.708 ms      |
+| 23    | Non-abundant sums                     | 12 Jan 2022   | 1.209s        | 812.590 ms    |
+| 24    | Lexicographic permutations            | 12 Jan 2022   | 484.656 ms    | 630.473 ns    |
+| 25    | 1000-digit Fibonacci number           | 9 Jan 2022    | 1.499 ms      | 17.599 ms     |
 | 29    | Distinct powers                       | 12 Jan 2022   |               |               |
 | 35    | Circular primes                       | 13 Jan 2022   |               |               |
 | 40    | Champernowne's constant               | 18 Jan 2022   |               |               |

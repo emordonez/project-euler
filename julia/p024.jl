@@ -11,18 +11,23 @@
 # What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4,
 # 5, 6, 7, 8 and 9?
 
+using BenchmarkTools
 using Combinatorics
 
-let millionth = ""
-    N = 1000000
-    digits = collect(0:9)
-    millionth_perm = Combinatorics.nthperm(digits, N)
-
+function solution_24(N::Int, limit::Int)
+    millionth = ""
+    digits = collect(0:N)
+    millionth_perm = Combinatorics.nthperm(digits, limit)
+    
     for d in millionth_perm
         millionth *= string(d)
     end
-    println(millionth)
+
+    return millionth
 end
+
+println(solution_24(9, 1000000))
+@btime solution_24(9, 1000000)
 
 # Answer: 2783915460
 # Completed on Wed, 12 Jan 2022

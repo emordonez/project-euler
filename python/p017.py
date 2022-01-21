@@ -12,8 +12,11 @@ https://projecteuler.net/problem=17
 # letters. The use of "and" when writing out numbers is in compliance with
 # British usage.
 
-def main():
-    """Stores letter counts in dicts."""
+from helpers import solution
+
+
+def solution_17(n):
+    """Stores in dicts letter counts of all natural numbers through n."""
     def letter_count(num):
         """Returns the number of letters when spelling out num in English."""
         count = 0
@@ -51,12 +54,20 @@ def main():
     SUB20 = {k:len(v) for k, v in zipped_sub20}
     TENS = {k:len(v) for k, v in zipped_tens}
 
-    N = 1000
     letter_sum = 0
-    for i in range(1, N + 1):
+    for i in range(1, n + 1):
         letter_sum += letter_count(i)
 
-    print(letter_sum)
+    return letter_sum
+
+
+def main():
+    """Main function."""
+    N = 1000
+    ans = solution_17(N)
+    stmt = lambda: solution_17(N)
+    solution.print_solution(ans)
+    solution.benchmark(stmt)
 
 
 if __name__ == "__main__":

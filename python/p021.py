@@ -13,13 +13,16 @@ https://projecteuler.net/problem=21
 # Evaluate the sum of all the amicable numbers under 10000.
 
 from math import ceil, sqrt
+from helpers import solution
 
 
 def sum_of_proper_divisors(n):
     """Returns the sum of proper divisors of n."""
-    if n <= 0:
+    if n < 0:
+        return ValueError("n must be positive")
+    elif n == 0:
         return
-    if n == 1:
+    elif n == 1:
         return 0
 
     s = 1
@@ -31,13 +34,12 @@ def sum_of_proper_divisors(n):
     return s + (sqrt_n if sqrt_n ** 2 == n else 0)
 
 
-def main():
-    """Finds all amicable numbers below 10,000 and sums them."""
-    N = 10000
-    nums = [False] * (N + 1)
+def solution_21(n):
+    """Finds all amicable numbers below n and sums them."""
+    nums = [False] * (n + 1)
     amicable_nums = set()
 
-    for i in range(1, N):
+    for i in range(1, n):
         if nums[i]:
             continue
 
@@ -49,7 +51,16 @@ def main():
             nums[a] = True
             nums[b] = True
 
-    print(sum(amicable_nums))
+    return sum(amicable_nums)
+
+
+def main():
+    """Main function."""
+    N = 10000
+    ans = solution_21(N)
+    stmt = lambda: solution_21(N)
+    solution.print_solution(ans)
+    solution.benchmark(stmt, number=100)
 
 
 if __name__ == "__main__":

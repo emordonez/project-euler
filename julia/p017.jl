@@ -12,7 +12,9 @@
 # letters. The use of "and" when writing out numbers is in compliance with
 # British usage.
 
-let letter_sum = 0
+using BenchmarkTools
+
+function solution_17(N::Int)
     function letter_count(n::Int)
         count = 0
         if n < 20
@@ -28,10 +30,10 @@ let letter_sum = 0
         elseif n == 1000
             count = length("onethousand")
         end
-
+    
         return count
     end
-
+    
     zipped_sub20 = zip(
         0:19,
         [
@@ -50,13 +52,17 @@ let letter_sum = 0
     )
     SUB20 = Dict((k, length(v)) for (k, v) in zipped_sub20)
     TENS = Dict((k, length(v)) for (k, v) in zipped_tens)
-
-    N = 1000
+    
+    letter_sum = 0
     for i in 1:N
         letter_sum += letter_count(i)
     end
-    println(letter_sum)
+
+    return letter_sum
 end
+
+println(solution_17(1000))
+@btime solution_17(1000)
 
 # Answer: 21124
 # Completed on Thu, 20 Jan 2022

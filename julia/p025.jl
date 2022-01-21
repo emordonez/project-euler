@@ -25,15 +25,21 @@
 # What is the index of the first term in the Fibonacci sequence to contain
 # 1000 digits?
 
-let f1::BigInt = 1, f2::BigInt = 1
-    N = 1000
+using BenchmarkTools
+
+function solution_25(N::Int)
+    f1::BigInt, f2::BigInt = 1, 1
     i = 2
     while length(digits(f2)) < N
         f1, f2 = f2, f1 + f2
         i += 1
     end
-    println(i)
+
+    return i
 end
+
+println(solution_25(1000))
+@btime solution_25(1000)
 
 # Answer: 4782
 # Completed on Sun, 9 Jan 2022

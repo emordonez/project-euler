@@ -8,12 +8,16 @@
 #
 # Find the sum of the digits in the number 100!
 
-let x = 0
-    N = 100
-    N_factorial = factorial(big(N))
-    x = sum(digits(N_factorial))
-    println(x)
+using BenchmarkTools
+
+function solution_20(n::Int)
+    n_factorial = factorial(big(n))
+
+    return sum(digits(n_factorial))
 end
+
+println(solution_20(100))
+@btime solution_20(100)
 
 # Answer: 648
 # Completed on Mon, 10 Jan 2022

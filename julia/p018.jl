@@ -29,6 +29,7 @@
 #       63 66 04 68 89 53 67 30 73 16 69 87 40 31
 #       04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
 
+using BenchmarkTools
 using DelimitedFiles
 
 function path_sum(line::Matrix, prev_line::Matrix)
@@ -39,15 +40,18 @@ function path_sum(line::Matrix, prev_line::Matrix)
     return line
 end
 
-let maximum_total = 0
-    triangle = readdlm("../_files/p018.txt")
+function solution_18(triangle::Matrix)
     N = size(triangle, 1)
     for i in (N - 1):-1:1
         triangle[i:i,:] = path_sum(triangle[i:i,:], triangle[i+1:i+1,:])
     end
-    maximum_total = first(triangle)
-    println(maximum_total)
+
+    return first(triangle)
 end
+
+triangle = readdlm("../_files/p018.txt")
+println(solution_18(triangle))
+@btime solution_18(triangle)
 
 # Answer: 1074
 # Completed on Mon, 17 Jan 2022

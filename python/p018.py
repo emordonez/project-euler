@@ -29,6 +29,8 @@ https://projecteuler.net/problem=18
 #       63 66 04 68 89 53 67 30 73 16 69 87 40 31
 #       04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
 
+from helpers import solution
+
 def path_sum(line, prev_line):
     """Finds the maximum path sum up to a number by adding the greater of the
     two numbers below it. Returns a list.
@@ -39,18 +41,25 @@ def path_sum(line, prev_line):
     return line
 
 
-def main():
+def solution_18(triangle):
     """Dynamic programming solution."""
+    n = len(triangle)
+    for i in range(n - 2, -1, -1):
+        triangle[i] = path_sum(triangle[i], triangle[i + 1])
+
+    return triangle[0][0]
+
+
+def main():
     with open('../_files/p018.txt') as file:
         text = file.read().splitlines()
         f = lambda x: list(map(int, x.split(' ')))
         triangle = [f(line) for line in text]
 
-    N = len(triangle)
-    for i in range(N - 2, -1, -1):
-        triangle[i] = path_sum(triangle[i], triangle[i + 1])
-
-    print(triangle[0][0])
+    ans = solution_18(triangle)
+    stmt = lambda: solution_18(triangle)
+    solution.print_solution(ans)
+    solution.benchmark(stmt)
 
 
 if __name__ == "__main__":
