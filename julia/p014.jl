@@ -16,12 +16,14 @@
 #
 # Which starting number, under one million, produces the longest chain?
 
-let max_seed = 0
-    N = 1000000
+using BenchmarkTools
+
+function solution_14(N::Int)
+    max_length = 0
+    max_seed = 0
     cache = Array{Int64}(undef, N - 1)
     fill!(cache, -1)
 
-    max_length = 0
     for i in 1:(N - 1)
         length = 1
         n = i
@@ -41,8 +43,12 @@ let max_seed = 0
             max_seed = i
         end
     end
-    println(max_seed)
+    
+    return max_seed
 end
+
+println(solution_14(1000000))
+@btime solution_14(1000000)
 
 # Answer: 837799
 # Completed on Sat, 8 Jan 2022

@@ -6,13 +6,11 @@ https://projecteuler.net/problem=3
 # What is the largest prime factor of the number 600851475143?
 
 from math import sqrt
+from helpers import solution
 
 
-def main():
+def solution_3(n):
     """Finds the largest prime factor by iterative divisibility tests."""
-    n = 600851475143
-    x = -1
-
     # If n is composite, then any factorization of n must have at least one factor
     #   smaller than the square root of n
     # Note that if n were even, we first would have to divide out all powers of 2
@@ -25,7 +23,16 @@ def main():
     if n > 2:
         x = n
 
-    print(x)
+    return x
+
+
+def main():
+    """Main function."""
+    n = 600851475143
+    ans = solution_3(n)
+    stmt = lambda: solution_3(n)
+    solution.print_solution(ans)
+    solution.benchmark(stmt)
 
 
 if __name__ == "__main__":

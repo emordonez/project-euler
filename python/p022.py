@@ -12,17 +12,16 @@ https://projecteuler.net/problem=22
 #
 # What is the total of all the name scores in the file?
 
-def main():
+from helpers import solution
+
+
+def solution_22(names):
     """Reads names into a list, sorts, and computes name scores."""
     alphabet = [
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
         'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
     ]
     alpha_value = dict(zip(alphabet, range(1, 27)))
-
-    with open('../_files/p022.txt') as f:
-        names = f.read().split(',')
-        names = sorted(names)
 
     total_score = 0
     for i, name in enumerate(names):
@@ -33,7 +32,19 @@ def main():
         score *= (i + 1)
         total_score += score
 
-    print(total_score)
+    return total_score
+
+
+def main():
+    """Main function."""
+    with open('../_files/p022.txt') as f:
+        names = f.read().split(',')
+        names = sorted(names)
+
+    ans = solution_22(names)
+    stmt = lambda: solution_22(names)
+    solution.print_solution(ans)
+    solution.benchmark(stmt)
 
 
 if __name__ == "__main__":

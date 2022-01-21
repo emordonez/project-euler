@@ -5,11 +5,14 @@
 #
 # What is the sum of the digits of the number 2^1000?
 
-let x = 0
-    N = 1000
-    x = sum(digits(big(2)^N))
-    println(x)
+using BenchmarkTools
+
+function solution_16(N::Int)
+    return sum(digits(big(2)^N))
 end
+
+println(solution_16(1000))
+@btime solution_16(1000)
 
 # Answer: 1366
 # Completed on Mon, 10 Jan 2022

@@ -5,11 +5,15 @@
 #
 # What is the largest prime factor of the number 600851475143?
 
+using BenchmarkTools
 using Primes
 
-N = 600851475143
-x = last(Primes.factor(Vector, N))
-println(x)
+function solution_3(N::Int)
+    return last(Primes.factor(Vector, N))
+end
+
+println(solution_3(600851475143))
+@btime solution_3(600851475143)
 
 # Answer: 6857
 # Completed Tue, 4 Jan 2022

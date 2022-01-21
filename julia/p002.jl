@@ -9,17 +9,23 @@
 # By considering the terms in the Fibonacci sequence whose values do not exceed
 # four million, find the sum of the even-valued terms.
 
-let f1 = 1, f2 = 2, x = 0
-    N = 4E6
+using BenchmarkTools
+
+function solution_2(N::Int)
     f1, f2 = 1, 2
+    x = 0
     while f2 < N
         if iseven(f2)
             x += f2
         end
         f1, f2 = f2, f1 + f2
     end
-    println(x)
+    
+    return x
 end
+
+println(solution_2(4000000))
+@btime solution_2(4000000)
 
 # Answer: 4613732
 # Completed Mon, 3 Jan 2022

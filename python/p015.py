@@ -7,19 +7,25 @@ https://projecteuler.net/problem=15
 # How many such routes are there through a 20×20 grid?
 
 from math import comb
+from helpers import solution
+
+
+def solution_15(n):
+    """For a square array of n x n points and only able to move to the right
+    and down, the number of routes from the top left to bottom right corner is
+    given by 2 * (n - 1) choose (n - 1).
+    """
+    return comb(2 * (n - 1), n - 1)
 
 
 def main():
-    """For a square array of N x N points and only able to move to the right
-    and down, the number of routes from the top left to bottom right corner is
-    given by 2 * (N - 1) choose (N - 1).
-    """
-
+    """Main function."""
     # There are 20 squares in the grid but 21 points
     N = 21
-    num_paths = comb(2 * (N - 1), N - 1)
-
-    print(num_paths)
+    ans = solution_15(N)
+    stmt = lambda: solution_15(N)
+    solution.print_solution(ans)
+    solution.benchmark(stmt)
 
 
 if __name__ == "__main__":

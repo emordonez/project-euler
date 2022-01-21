@@ -28,9 +28,10 @@
 # Find the thirteen adjacent digits in the 1000-digit number that have the
 # greatest product. What is the value of this product?
 
-let max_prod = 0
-    num = join(readlines("../_files/p008.txt"))
-    n = 13
+using BenchmarkTools
+
+function solution_8(num::String, n::Int)
+    max_prod = 0
     for i in 1:(length(num) - n + 1)
         prod = 1
         for j in i:(i + n - 1)
@@ -42,8 +43,13 @@ let max_prod = 0
         end
         max_prod = max(prod, max_prod)
     end
-    println(max_prod)
+    
+    return max_prod
 end
+
+num = join(readlines("../_files/p008.txt"))
+println(solution_8(num, 13))
+@btime solution_8(num, 13)
 
 # Answer: 23514624000
 # Completed on Thu, 6 Jan 2022

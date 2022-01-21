@@ -16,33 +16,44 @@ https://projecteuler.net/problem=14
 #
 # Which starting number, under one million, produces the longest chain?
 
-def main():
-    """Computes the length of Collatz sequences with starting seeds 1..1E6,
+from helpers import solution
+
+
+def solution_14(n):
+    """Computes the length of Collatz sequences with starting seeds 1..n,
     while storing the lengths of previously computed sequences.
     """
-    N = 1000000
     max_length = 0
     max_seed = 0
-    cache = [-1 for i in range(N + 1)]
+    cache = [-1 for _ in range(n + 1)]
 
-    for i in range(1, N):
+    for i in range(1, n):
         length = 1
-        n = i
+        k = i
 
-        while n != 1 and n >= i:
+        while k != 1 and k >= i:
             length += 1
-            if n % 2 == 0:
-                n /= 2
+            if k % 2 == 0:
+                k /= 2
             else:
-                n = 3 * n + 1
+                k = 3 * k + 1
 
-        cache[i] = length + cache[int(n)]
+        cache[i] = length + cache[int(k)]
 
         if cache[i] > max_length:
             max_length = cache[i]
             max_seed = i
 
-    print(max_seed)
+    return max_seed
+
+
+def main():
+    """Main function."""
+    N = 1000000
+    ans = solution_14(N)
+    stmt = lambda: solution_14(N)
+    solution.print_solution(ans)
+    solution.benchmark(stmt, number=10)
 
 
 if __name__ == "__main__":

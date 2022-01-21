@@ -30,17 +30,16 @@
 # What is the greatest product of four adjacent numbers in the same direction
 # (up, down, left, right, or diagonally) in the 20×20 grid?
 
+using BenchmarkTools
 using DelimitedFiles
 using LinearAlgebra
 
 # This solution illustrates how easy it is to create and manipulate matrices in
 # Julia, however I suspect it does *not* run faster than the native Python
 # solution
-let max_product = 0
-    M = Matrix{Int}(readdlm("../_files/p011.txt"))
+function solution_11(M::Matrix, k::Int)
     N = size(M, 1)
-    k = 4
-    product = 0
+    max_product = 0
 
     function max_k_product(
         v::Union{SubArray, Vector},
@@ -86,8 +85,12 @@ let max_product = 0
         max_product = maximum(max_k_product, [down_U, down_L, up_U, up_L])
     end
 
-    println(max_product)
+    return max_product
 end
+
+M = Matrix{Int}(readdlm("../_files/p011.txt"))
+println(solution_11(M, 4))
+@btime solution_11(M, 4)
 
 # Answer: 70600674
 # Completed on Sun, 16 Jan 2022

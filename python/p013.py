@@ -7,20 +7,17 @@ https://projecteuler.net/problem=13
 #   (see "../_files/p013.txt")
 #
 
-def main():
-    """Adds all the numbers then slices the first 10 characters of the sum as a
+from helpers import solution
+
+
+def solution_13(nums, num_length, n):
+    """Adds all the numbers then slices the first n characters of the sum as a
     string.
     """
-    with open('../_files/p013.txt') as f:
-        nums = f.read().splitlines()
-
     # Although Python can handle arbitrarily large numbers, this addition
     # algorithm is more space efficient
-    N = 10
-    num_length = 50
     total_sum_str = ""
     carry = 0
-
     for i in reversed(range(num_length)):
         digits_sum = carry
         for num in nums:
@@ -32,7 +29,20 @@ def main():
         total_sum_str += str(carry)
         total_sum_str = total_sum_str[::-1]
 
-    print(total_sum_str[:N])
+    return total_sum_str[:n]
+
+
+def main():
+    """Main function."""
+    num_length = 50
+    n = 10
+    with open('../_files/p013.txt') as f:
+        nums = f.read().splitlines()
+
+    ans = solution_13(nums, num_length, n)
+    stmt = lambda: solution_13(nums, num_length, n)
+    solution.print_solution(ans)
+    solution.benchmark(stmt)
 
 
 if __name__ == "__main__":

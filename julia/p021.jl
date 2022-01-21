@@ -12,12 +12,10 @@
 #
 # Evaluate the sum of all the amicable numbers under 10000.
 
+using BenchmarkTools
+
 function d(n::Int)
-    if n < 0
-        throw(ArgumentError("n must be positive"))
-    elseif n == 0
-        return nothing
-    elseif n == 1
+    if n <= 1
         return 0
     end
 
@@ -32,8 +30,8 @@ function d(n::Int)
     return s + (sqrt_n^2 == n ? sqrt_n : 0)
 end
 
-let amicable_nums = Set()
-    N = 10000
+function solution_21(N::Int)
+    amicable_nums = Set{Int}()
     nums = Array{Bool}(undef, N - 1)
 
     for i in 1:(N - 1)
@@ -50,8 +48,11 @@ let amicable_nums = Set()
         end
     end
 
-    println(sum(amicable_nums))
+    return sum(amicable_nums)
 end
+
+println(solution_21(10000))
+@btime solution_21(10000)
 
 # Answer: 31626
 # Completed on Tue, 11 Jan 2022

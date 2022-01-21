@@ -12,13 +12,12 @@
 #
 # What is the total of all the name scores in the file?
 
-let total_score = 0
+using BenchmarkTools
+
+function solution_22(names::Vector{SubString{String}})
+    total_score = 0
     ALPHABET = collect('A':'Z')
     ALPHA_VALUE = Dict(zip(ALPHABET, 1:26))
-    
-    names = join(readlines("../_files/p022.txt"))
-    names = split(names, ',')
-    sort!(names)
     
     for (rank, name) in enumerate(names)
         score = 0
@@ -29,8 +28,16 @@ let total_score = 0
         score *= rank
         total_score += score
     end
-    println(total_score)
+    
+    return total_score
 end
+
+names = join(readlines("../_files/p022.txt"))
+names = split(names, ',')
+sort!(names)
+
+println(solution_22(names))
+@btime solution_22(names)
 
 # Answer: 871198282
 # Completed on Tue, 11 Jan 2022

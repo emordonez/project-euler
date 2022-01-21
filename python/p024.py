@@ -12,19 +12,29 @@ https://projecteuler.net/problem=24
 # 5, 6, 7, 8 and 9?
 
 from itertools import permutations
+from helpers import solution
+
+
+def solution_24(n, limit):
+    """Permutes the range 0..n and sorts them lexicographically."""
+    digits = list(range(n + 1))
+    perm = sorted(permutations(digits))
+
+    millionth = ""
+    for d in perm[limit - 1]:
+        millionth += str(d)
+
+    return millionth
 
 
 def main():
-    """Permutes the range 0..9 and sorts them lexicographically."""
-    digits = list(range(10))
-    perm = sorted(permutations(digits))
-
-    N = 1000000
-    millionth = ""
-    for d in perm[N - 1]:
-        millionth += str(d)
-
-    print(millionth)
+    """Main function."""
+    n = 9
+    limit = 1000000
+    ans = solution_24(n, limit)
+    stmt = lambda: solution_24(n, limit)
+    solution.print_solution(ans)
+    solution.benchmark(stmt, number=100)
 
 
 if __name__ == "__main__":

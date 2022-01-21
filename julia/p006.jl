@@ -17,16 +17,21 @@
 # Find the difference between the sum of the squares of the first one hundred
 # natural numbers and the square of the sum.
 
-let x = 0
+using BenchmarkTools
+
+function solution_6(N::Int)
     sum_of_squares, square_of_sum = 0, 0 
-    for i in 1:100
+    for i in 1:N
         sum_of_squares += i^2
         square_of_sum += i
     end
     square_of_sum = square_of_sum^2
-    x = square_of_sum - sum_of_squares
-    println(x)
+    
+    return square_of_sum - sum_of_squares
 end
+
+println(solution_6(100))
+@btime solution_6(100)
 
 # Answer: 25164150
 # Completed on Thu, 6 Jan 2022

@@ -6,15 +6,14 @@
 #
 # Find the sum of all the multiples of 3 or 5 below 1000.
 
-let x = 0
-    N = 1000
-    for i in 1:(N - 1)
-        if mod(i, 3) == 0 || mod(i , 5) == 0
-            x += i
-        end
-    end
-    println(x)
+using BenchmarkTools
+
+function solution_1(N::Int)
+    return sum(i for i in 1:(N - 1) if mod(i, 3) == 0 || mod(i, 5) == 0)
 end
+
+println(solution_1(1000))
+@btime solution_1(1000)
 
 # Answer: 233168
 # Completed Mon, 3 Jan 2022

@@ -6,17 +6,28 @@ https://projecteuler.net/problem=4
 #
 # Find the largest palindrome made from the product of two 3-digit numbers.
 
-def main():
+from helpers import solution
+
+
+def solution_4(n):
     """Iterates over all products of three-digit numbers."""
-    N = 1000
     x = -1
-    for i in range(100, N):
-        for j in range(i, N):
+    for i in range(100, n):
+        for j in range(i, n):
             prod = i * j
             if prod > x and str(prod) == str(prod)[::-1]:
                 x = prod
 
-    print(x)
+    return x
+
+
+def main():
+    """Main function."""
+    N = 1000
+    ans = solution_4(N)
+    stmt = lambda: solution_4(N)
+    solution.print_solution(ans)
+    solution.benchmark(stmt)
 
 
 if __name__ == "__main__":

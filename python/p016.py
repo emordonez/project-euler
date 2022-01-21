@@ -5,14 +5,25 @@ https://projecteuler.net/problem=16
 #
 # What is the sum of the digits of the number 2^1000?
 
-def main():
-    """Loops through the digits of 2^1000."""
-    N = 1000
+from helpers import solution
+
+
+def solution_16(n):
+    """Loops through the digits of 2^n and returns the sum."""
     digits_sum = 0
-    for d in str(2**N):
+    for d in str(2**n):
         digits_sum += int(d)
 
-    print(digits_sum)
+    return digits_sum
+
+
+def main():
+    """Main function."""
+    N = 1000
+    ans = solution_16(N)
+    stmt = lambda: solution_16(N)
+    solution.print_solution(ans)
+    solution.benchmark(stmt)
 
 
 if __name__ == "__main__":

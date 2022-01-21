@@ -28,13 +28,11 @@ https://projecteuler.net/problem=8
 # Find the thirteen adjacent digits in the 1000-digit number that have the
 # greatest product. What is the value of this product?
 
-def main():
-    """Loops through the number's digits to find the max product."""
-    with open('../_files/p008.txt') as f:
-        num = f.read().splitlines()
-        num = ''.join(num)
+from helpers import solution
 
-    n = 13
+
+def solution_8(num, n):
+    """Loops through the number's digits to find the max product."""
     max_prod = 0
     for i in range(len(num) - n):
         prod = 1
@@ -46,7 +44,20 @@ def main():
 
         max_prod = max(prod, max_prod)
 
-    print(max_prod)
+    return max_prod
+
+
+def main():
+    """Main function."""
+    with open('../_files/p008.txt') as f:
+        num = f.read().splitlines()
+        num = ''.join(num)
+
+    n = 13
+    ans = solution_8(num, n)
+    stmt = lambda: solution_8(num, n)
+    solution.print_solution(ans)
+    solution.benchmark(stmt)
 
 
 if __name__ == "__main__":

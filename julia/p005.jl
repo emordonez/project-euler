@@ -7,8 +7,14 @@
 # What is the smallest positive number that is evenly divisible by all of the
 # numbers from 1 to 20?
 
-x = lcm(collect(1:20))
-println(x)
+using BenchmarkTools
+
+function solution_5(N::Int)
+    return lcm(collect(1:N))
+end
+
+println(solution_5(20))
+@btime solution_5(20)
 
 # Answer: 232792560
 # Completed on Wed, 5 Jan 2022

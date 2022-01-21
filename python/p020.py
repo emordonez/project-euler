@@ -8,18 +8,29 @@ https://projecteuler.net/problem=20
 #
 # Find the sum of the digits in the number 100!
 
-def main():
-    """Computes 100! and loops through its digits."""
-    N = 100
-    N_factorial = 1
-    for i in range(1, N + 1):
-        N_factorial *= i
+from helpers import solution
+
+
+def solution_20(n):
+    """Computes n! and loops through its digits."""
+    n_factorial = 1
+    for i in range(1, n + 1):
+        n_factorial *= i
 
     digits_sum = 0
-    for d in str(N_factorial):
+    for d in str(n_factorial):
         digits_sum += int(d)
 
-    print(digits_sum)
+    return digits_sum
+
+
+def main():
+    """Main function."""
+    N = 100
+    ans = solution_20(N)
+    stmt = lambda: solution_20(N)
+    solution.print_solution(ans)
+    solution.benchmark(stmt)
 
 
 if __name__ == "__main__":

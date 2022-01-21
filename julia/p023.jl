@@ -19,12 +19,10 @@
 # Find the sum of all the positive integers which cannot be written as the sum
 # of two abundant numbers.
 
+using BenchmarkTools
+
 function d(n::Int)
-    if n < 0
-        throw(ArgumentError("n must be positive"))
-    elseif n == 0
-        return nothing
-    elseif n == 1
+    if n <= 1
         return 0
     end
 
@@ -39,14 +37,15 @@ function d(n::Int)
     return s + (sqrt_n^2 == n ? sqrt_n : 0)
 end
 
-let non_abundant_sum = 0
-    N = 28123
+function solution_23(N::Int)
     abundants = [i for i in 1:N if d(i) > i]
     abundant_sums = unique((abundants .+ abundants'))
-    non_abundant_sum = sum(setdiff(1:N, abundant_sums))
     
-    println(non_abundant_sum)
+    return sum(setdiff(1:N, abundant_sums))
 end
+
+println(solution_23(28123))
+@btime solution_23(28123)
 
 # Answer: 4179871
 # Completed on Wed, 12 Jan 2022

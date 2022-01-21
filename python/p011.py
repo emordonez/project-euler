@@ -30,17 +30,14 @@ https://projecteuler.net/problem=11
 # What is the greatest product of four adjacent numbers in the same direction
 # (up, down, left, right, or diagonally) in the 20×20 grid?
 
-def main():
+from helpers import solution
+
+
+def solution_11(nums, k):
     """Extracts the rows, columns, and diagonals of the grid. Could be more
     space efficient but is still O(n^2).
     """
-    with open('../_files/p011.txt') as file:
-        text = file.read().splitlines()
-        f = lambda x: list(map(int, x.split(' ')))
-        nums = [f(line) for line in text]
-
     N = len(nums)
-    k = 4
     max_prod = 0
 
     # Let the grid be represented by an N x N matrix
@@ -88,7 +85,21 @@ def main():
     for tup in zip(rows, cols, up_diags, down_diags):
         max_prod = max(*map(k_prod, tup), max_prod)
 
-    print(max_prod)
+    return max_prod
+
+
+def main():
+    """Main function."""
+    k = 4
+    with open('../_files/p011.txt') as file:
+        text = file.read().splitlines()
+        f = lambda x: list(map(int, x.split(' ')))
+        nums = [f(line) for line in text]
+
+    ans = solution_11(nums, k)
+    stmt = lambda: solution_11(nums, k)
+    solution.print_solution(ans)
+    solution.benchmark(stmt)
 
 
 if __name__ == "__main__":

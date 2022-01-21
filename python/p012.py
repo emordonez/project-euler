@@ -22,19 +22,18 @@ https://projecteuler.net/problem=12
 # What is the value of the first triangle number to have over five hundred
 # divisors?
 
-from helpers import primes
+from helpers import primes, solution
 
 
-def main():
+def solution_12(d):
     """Utilizes prime factorizations to find the number of divisors."""
-    N = 500
     max_divisors = 0
     triangle = 0
     i = 1
 
     # Given a natural number n and its prime factorization n = p^a p^b ... p^k,
     # the number of divisors of n is given by (a + 1)(b +1)...(k + 1)
-    while max_divisors <= N:
+    while max_divisors <= d:
         divisors = 1
         triangle += i
         for k in primes.factor(triangle).values():
@@ -43,7 +42,16 @@ def main():
         max_divisors = max(divisors, max_divisors)
         i += 1
 
-    print(triangle)
+    return triangle
+
+
+def main():
+    """Main function."""
+    N = 500
+    ans = solution_12(N)
+    stmt = lambda: solution_12(N)
+    solution.print_solution(ans)
+    solution.benchmark(stmt, number=10)
 
 
 if __name__ == "__main__":

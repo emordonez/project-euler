@@ -7,6 +7,9 @@ https://projecteuler.net/problem=5
 # What is the smallest positive number that is evenly divisible by all of the
 # numbers from 1 to 20?
 
+from helpers import solution
+
+
 def factor(n):
     """Takes an integer and decomposes it into its prime factors with
     multiplicity. Returns a dict.
@@ -27,7 +30,7 @@ def factor(n):
     return {p:factors.count(p) for p in factors}
 
 
-def main():
+def solution_5():
     """Finds the least common multiple of the integers 1..20."""
     # The LCM is the product of all prime factors in the range 1 to 20, with
     # each prime raised to the highest power that appears in a factorization
@@ -39,11 +42,19 @@ def main():
         for p, count in factorization.items():
             prime_counts[p] = max(count, prime_counts[p])
 
-    x = 1
+    lcm = 1
     for k, v in prime_counts.items():
-        x *= k**v
+        lcm *= k**v
 
-    print(x)
+    return lcm
+
+
+def main():
+    """Main function."""
+    ans = solution_5()
+    stmt = solution_5
+    solution.print_solution(ans)
+    solution.benchmark(stmt)
 
 
 if __name__ == "__main__":
